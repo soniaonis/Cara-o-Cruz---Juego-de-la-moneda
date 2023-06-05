@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Coin Flip Game using Javascript</title>
+</head>
+<body>
+    <div class="container">
+        <!--Now make coin using 2 images-->
+
+        <div class="coin" id="coin">
+           <!--heads image--> 
+           <div class="heads">
+            <img src="images/coin_heads.jpg" alt="heads coin">
+           </div>
+           <!--tails image-->
+           <div class="tails">
+            <img src="images/coin_tails.jpg" alt="tails coin">
+           </div>
+        </div>
+
+        <!--Now make a display to view stats-->
+        <div class="stats">
+            <p id="heads-count">Heads: 0</p>
+            <p id="tails-count">Tails: 0</p>
+        </div>
+
+        <!--Now make 2 buttons-->
+        <div class="buttons">
+            <button id="flip-button">Flip Coin</button>
+            <button id="reset-button">Reset</button>
+        </div>
+    </div>
+
+    <!--Now active this flip coin game with Javascript-->
+
+    <script type="text/javascript">
+    // I set a constant of some id and class functions
+
+    let coin = document.querySelector(".coin");
+    let flipBtn = document.querySelector("#flip-button");
+    let resetBtn = document.querySelector("reset-button");
+
+    // Now I take the value of heads and tails to be zero
+
+    let heads = 0;
+    let tails = 0;
+
+    flipBtn.addEventListener("click", ()=>{
+    // All the values I have stored in i.
+    // Math.random is a javascript method that randomly sets a value among many values
+        let i = Math.floor(Math.random() * 2);
+        coin.style.animation = "none";
+        if(i){
+            setTimeout(function(){
+                coin.style.animation = "spin-heads 3s forwards";
+            }, 100);
+            heads++;
+        }
+        else{
+            setTimeout(function(){
+                coin.style.animation = "spin-tails 3s forwards";
+            }, 100);
+            tails++;
+        }
+        setTimeout(updateStats,3000); // 1 second = 1000 miliseconds
+        disableButton();
+    });
+    // I have activated the counter 
+
+    function updateStats(){
+        document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+        document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
+    }
+    // I have activeted the disable buttons
+    // When the coin flips, the 'flip button' will go into disable mode.
+
+    function disableButton(){
+        flipBtn.disabled = true;
+        setTimeout(function(){
+            flipBtn.disabled = false;
+        }, 3000);
+    }
+    //Now I have active the reset buttons
+
+    resetBtn.addEventListener("click",() =>{
+        coin.style.animation = "none";
+    })
+    </script>
+</body>
+</html>
