@@ -35,19 +35,19 @@ body{
 .tails{
     transform: rotateX(180deg);   
 }
-/*Now add flip animation*/
+
 @keyframes spin-tails{
    0%{
-    transform: rotateX(0) ; /* rotateX help to rotate this coin according to x axis*/
+    transform: rotateX(0) ;
    } 
    100%{
-    transform: rotateX(1980deg); /* 1980 + 180 = 2160deg */
+    transform: rotateX(1980deg); 
    }
 }
 
 @keyframes spin-heads{
     0%{
-     transform: rotateX(0) ; /* rotateX help to rotate this coin according to x axis*/
+     transform: rotateX(0) ;
     } 
     100%{
      transform: rotateX(2160deg) ;
