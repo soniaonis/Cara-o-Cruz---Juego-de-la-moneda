@@ -7,11 +7,13 @@ The objective of the game is to add a point to each side of the coin each time i
 The game has 2 buttons:
 
 ● Spin the coin
+
 ● Reset the game
 
 The game has 2 counters that store scores according to which side of the coin has landed:
 
 ● Heads counter: n times heads
+
 ● Tails counter: n times tails
 
 The coin is animated so that it has the effect of spinning each time it is tossed. 
